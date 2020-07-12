@@ -20,7 +20,7 @@
   },
   "require": {
     "php": "^7.2",
-    "telegram-bot/api": "^3.0.0.x-dev"
+    "telegram-bot/api": "^3.0.0.x"
   },
   "autoload": {
     "psr-4": {
