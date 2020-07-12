@@ -19,7 +19,8 @@
     "source": "https://github.com/yangiariqsoft/telegrambot"
   },
   "require": {
-    "php": ">=7.0.0"
+    "php": "^7.2",
+    "telegram-bot/api": "^3.0.0.x-dev"
   },
   "autoload": {
     "psr-4": {
