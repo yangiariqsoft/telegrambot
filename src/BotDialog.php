@@ -5,10 +5,10 @@ namespace Yangiariqsoft\Telegrambot;
 
 class BotDialog
 {
-    private $controller;
-    private $action;
-    private $status;
-    private $data;
+    protected $controller;
+    protected $action;
+    protected $status;
+    protected $data;
 
     public static function getInstance($userId){
         session_id('dialog' . $userId);

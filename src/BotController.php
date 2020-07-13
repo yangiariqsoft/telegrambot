@@ -2,7 +2,7 @@
 
 namespace Yangiariqsoft\Telegrambot;
 
-abstract class BotController
+abstract class BotController extends Config
 {
     public function run($dialog, $data){
         $controller = $dialog->getController();
@@ -17,5 +17,5 @@ abstract class BotController
         }
     }
 
-    public abstract function defaultAction($dilog, $data);
+    public abstract function defaultAction($dialog, $data);
 }
