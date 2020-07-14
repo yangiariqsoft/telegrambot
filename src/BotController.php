@@ -2,8 +2,26 @@
 
 namespace Yangiariqsoft\Telegrambot;
 
-abstract class BotController extends Config
+abstract class BotController
 {
+    protected $api;
+
+    /**
+     * @return mixed
+     */
+    public function getApi()
+    {
+        return $this->api;
+    }
+
+    /**
+     * @param mixed $api
+     */
+    public function setApi($api): void
+    {
+        $this->api = $api;
+    }
+
     public function run($dialog, $data){
         $controller = $dialog->getController();
         $action = $dialog->getAction();

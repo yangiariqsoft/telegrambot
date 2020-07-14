@@ -4,14 +4,13 @@ namespace Yangiariqsoft\Telegrambot;
 
 use TelegramBot\Api\BotApi;
 
-class BotRouter extends Config
+class BotRouter
 {
     protected $defaultController = DefaultBotController::class;
 
     public function __construct($token)
     {
         $this->token = $token;
-        $this->api = new BotApi($this->token);
     }
 
     /**
@@ -31,21 +30,17 @@ class BotRouter extends Config
     }
 
     public function route($dialog, $data){
+        $api = new BotApi($this->token);
         $controllerClass = $dialog->getController();
+        $controller = null;
         if (class_exists($controllerClass)){
             $controller = new $controllerClass();
-            if ($controller instanceof BotController){
-                $controller->setToken($this->token);
-                $controller->setApi($this->api);
-                $controller->run($dialog, $data);
-            }
         }elseif (class_exists($this->defaultController)){
             $controller = new $this->defaultController();
-            if ($controller instanceof BotController){
-                $controller->setToken($this->token);
-                $controller->setApi($this->api);
-                $controller->run($dialog, $data);
-            }
+        }
+        if ($controller instanceof BotController){
+            $controller->setApi($api);
+            $controller->run($dialog, $data);
         }
     }
 }
